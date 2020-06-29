@@ -205,6 +205,9 @@ export default {
   components: {
     Questions
   },
+  asyncData({ redirect }) {
+    redirect("/security");
+  },
   data() {
     return {
       e6: 1,
