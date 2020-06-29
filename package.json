@@ -1,0 +1,35 @@
+{
+  "name": "individual",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Sabee <vargha.sabolch@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.4.1",
+    "@nuxtjs/router": "^1.0.1",
+    "@nuxtjs/vuetify": "^0.5.5",
+    "axios": "^0.18.1",
+    "chart.js": "^2.9.3",
+    "js-cookie": "^2.2.0",
+    "nuxt": "^2.0.0",
+    "vee-validate": "^2.1.7",
+    "vue-chartjs": "^3.5.0",
+    "vue-i18n": "^7.6.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^0.1.2",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
+  }
+}

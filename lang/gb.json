@@ -1,0 +1,262 @@
+{
+  "app": {
+    "title": "Information system for ranking of developers of aviation start-ups",
+    "creator": "",
+    "year": ""
+  },
+  "btn": {
+    "continue": "Continue",
+    "example": "Load Example",
+    "back": "Back",
+    "finish": "Finish",
+    "close": "Close",
+    "save": "Save"
+  },
+  "navbar": {
+    "title": "Home"
+  },
+  "settings": {
+    "nav": {
+      "rate": "Risk",
+      "another": "Interval",
+      "questions": "General",
+      "about": "About"
+    },
+    "question": { "title": "Values of linguistic variables" },
+    "another": { "title": "Therm sets" },
+    "about": {
+      "title": "Information system for ranking of developers of aviation start-ups",
+      "creator": "",
+      "year": ""
+    }
+  },
+  "d": "Confidence factor (d)",
+  "loading": "Please stand by",
+  "commandname": "Command name",
+
+  "tables": [
+    {
+      "title": "Smart Security",
+      "rows": [
+        {
+          "name": "single dispatch system situation: records management, computer-based dispatching system;",
+          "index": 3,
+          "v": 10,
+          "value": 0.55
+        },
+        {
+          "name": "the situation regarding the operation of GIS systems;",
+          "index": 2,
+          "v": 9,
+          "value": 0.75
+        },
+        {
+          "name": "the situation on emergency support systems, communications and information sharing between public security agencies;",
+          "index": 4,
+          "v": 9,
+          "value": 0.83
+        },
+        {
+          "name": "security systems analytics situation (video analytics, social media and media analysis, statistical analysis, trend analysis and forecasting, identification of potentially dangerous situations);",
+          "index": 3,
+          "v": 10,
+          "value": 0.69
+        },
+        {
+          "name": "the situation regarding face recognition technologies; ",
+          "index": 2,
+          "v": 9,
+          "value": 0.78
+        },
+        {
+          "name": "situation with radar collecting systems and mobile solutions (GPS subscriber position determination); ",
+          "index": 3,
+          "v": 7,
+          "value": 0.82
+        },
+        {
+          "name": "the situation of various sensors (sensors as part of the Internet of Things) and related embedded solutions, including the use of sensors to improve the health and safety of officers; ",
+          "index": 1,
+          "v": 8,
+          "value": 0.94
+        },
+        {
+          "name": "the situation regarding the training of police officers by web technologies in their special programs;",
+          "index": 4,
+          "v": 7,
+          "value": 0.89
+        },
+        {
+          "name": "the situation on network infrastructure to support web technologies (new IpV6 protocols, 5G Internet generation), including ships and correctional facilities;",
+          "index": 2,
+          "v": 7,
+          "value": 0.55
+        },
+        {
+          "name": "the situation of common national / regional electronic file systems for criminals and offenders, including common directories and classification systems.",
+          "index": 3,
+          "v": 8,
+          "value": 0.86
+        }
+      ]
+    },
+    {
+      "title": "Smart Healthcare",
+      "rows": [
+        {
+          "name": "the situation regarding the health and well-being of city dwellers;",
+          "index": 2,
+          "v": 10,
+          "value": 0.72
+        },
+        {
+          "name": "the situation regarding the availability of records to the doctor, and time costs of care including availability of electronic document;",
+          "index": 4,
+          "v": 9,
+          "value": 0.85
+        },
+        {
+          "name": "the situation regarding the state of constant monitoring, the possibility of remote consultation and response to health hazards;",
+          "index": 3,
+          "v": 9,
+          "value": 0.91
+        },
+        {
+          "name": " the situation regarding the state of health protection, by ensuring the safety of the environment, labor, food, etc;",
+          "index": 2,
+          "v": 8,
+          "value": 0.86
+        },
+        {
+          "name": "the situation of health promotion, including the impact on the social determinants and reduce health inequality indicators;",
+          "index": 2,
+          "v": 7,
+          "value": 0.78
+        },
+        {
+          "name": "he situation with the prevention of disease, including early detection of health problems;",
+          "index": 3,
+          "v": 8,
+          "value": 0.77
+        },
+        {
+          "name": "the situation regarding the provision of health care by qualified medical personnel sufficient capacity and training and improve their skills;",
+          "index": 4,
+          "v": 10,
+          "value": 0.94
+        },
+        {
+          "name": "the situation in the field of health care provision by qualified auxiliary staff of sufficient capacity and training and training;",
+          "index": 2,
+          "v": 9,
+          "value": 0.96
+        },
+        {
+          "name": "the situation regarding the repair of medical institutions, the purchase of modern equipment, medicines and financing;",
+          "index": 3,
+          "v": 9,
+          "value": 0.29
+        },
+        {
+          "name": "the situation with information and education activities, communication and social mobilization in the interests of the health of residents.",
+          "index": 1,
+          "v": 6,
+          "value": 0.78
+        }
+      ]
+    },
+    {
+      "title": "Smart Environment",
+      "rows": [
+        {
+          "name": "the situation regarding air quality control systems",
+          "index": 3,
+          "v": 10,
+          "value": 0.93
+        },
+        {
+          "name": "the situation regarding integrated solid waste management systems",
+          "index": 2,
+          "v": 8,
+          "value": 0.93
+        },
+        {
+          "name": "situation regarding the use of data from water meters, sensors and other intelligent devices to forecast demand and availability of resources, optimize feed volumes, identify losses, implement savings programs, optimize water infrastructure and resources",
+          "index": 4,
+          "v": 7,
+          "value": 0.97
+        },
+        {
+          "name": "the situation of smart systems for wastewater treatment",
+          "index": 3,
+          "v": 7,
+          "value": 0.75
+        },
+        {
+          "name": "the situation regarding the systems of prediction and autonomous adaptation of the grids to improve the reliability, connection of new energy sources",
+          "index": 4,
+          "v": 6,
+          "value": 0.82
+        },
+        {
+          "name": "the situation regarding system optimization and energy savings, analysts forecasting and preventive maintenance of equipment",
+          "index": 2,
+          "v": 9,
+          "value": 0.92
+        },
+        {
+          "name": " the situation of smart city lighting systems and support systems for technical staff",
+          "index": 1,
+          "v": 7,
+          "value": 0.37
+        }
+      ]
+    }
+  ],
+  "stages": [
+    "Fuzzification of the hybrid input data municipality subsystems ",
+    "Aggregating the evaluation of a municipality's subsystems for preventive measures ",
+    "Risk assessment in safe mode, emergency and disaster",
+    "Aggregation of risk assessment of a municipality system by modes",
+    "Defuzzification of the data and determining the level of risk ",
+    "Conclusion, determination of risk acceptability and assessment of required resources"
+  ],
+  "menu": [
+    { "name": "Smart Security", "to": "/security" },
+    { "name": "Smart Healthcare", "to": "/healthcare" },
+    { "name": "Smart Environment", "to": "/enviroment" },
+    { "name": "Smart Budget", "to": "/budget" },
+    { "name": "Smart WebGIS", "to": "/webgis" }
+  ],
+  "levels": [
+    { "name": "low level", "char": "L", "value": 0 },
+    { "name": "level below average", "char": "BA", "value": 1 },
+    { "name": "average level", "char": "A", "value": 2 },
+    { "name": "above average level", "char": "AA", "value": 3 },
+    { "name": "high level", "char": "H", "value": 4 }
+  ],
+  "range": [
+    { "name": "very low the level of risk", "val": [0, 0.2], "char": "VLR" },
+    { "name": "low the level of risk", "val": [0.2, 0.4], "char": "LR" },
+    { "name": "average the level of risk", "val": [0.4, 0.6], "char": "AR" },
+    { "name": "high the level of risk", "val": [0.6, 0.8], "char": "HR" },
+    { "name": "very high the level of risk", "val": [0.8, 1], "char": "VHR" }
+  ],
+  "modes": [
+    { "name": "safe mode", "k": "5/3", "char": "S" },
+    { "name": "emergency mode", "k": "4/3", "char": "E" },
+    { "name": "disaster mode", "k": "2/3", "char": "D" }
+  ],
+  "calcType": [
+    { "name": "pessimistic scenario for unfolding events", "value": 0 },
+    { "name": "cautious scenario for unfolding events", "value": 1 },
+    { "name": "average scenario for unfolding events", "value": 2 },
+    { "name": "optimistic scenario for unfolding events", "value": 3 }
+  ],
+  "calcTypeTitle": "Scenario",
+  "modeTitle": "Threshold of possibility of functioning of subsystems of the municipality",
+  "tableTitle": "Weight coefficients",
+  "resultTitle":"Risk resource Y",
+
+  "result": ["unacceptable", "acceptable"]
+}
