@@ -8,7 +8,7 @@
             legend: {
               display: true,
               labels: {
-                fontColor: 'rgb(255, 255, 255)'
+                fontColor: 'rgb(0, 0, 0)'
               }
             },
             maintainAspectRatio: false,

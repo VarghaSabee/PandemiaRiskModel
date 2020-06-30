@@ -4,9 +4,9 @@
       :clipped-left="primaryDrawer.clipped"
       app
       absolute
-      class="green light-2"
+      class="primary"
     >
-      <v-btn outline v-for="item in $t('menu')" :key="item.name" :to="item.to">
+      <v-btn outline v-for="item in $t('menu')" :key="item.name" :to="item.to" color="white">
         {{ item.name }}
       </v-btn>
       <v-spacer></v-spacer>
@@ -75,7 +75,7 @@ import { loadMessages } from "~/plugins/i18n";
 
 export default {
   data: () => ({
-    dark: true,
+    dark: false,
 
     scroll: false,
     offsetTop: 0,

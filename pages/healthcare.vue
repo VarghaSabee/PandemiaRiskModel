@@ -6,7 +6,7 @@
           {{ $t("tables[1].title") }}
         </span>
         <v-spacer></v-spacer>
-        <v-btn color="success" @click="saveChanges">
+        <v-btn color="primary" @click="saveChanges">
           Save
         </v-btn>
       </v-card-actions>

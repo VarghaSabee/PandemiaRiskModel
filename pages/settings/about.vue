@@ -4,7 +4,7 @@
       <v-container bg fill-height grid-list-md text-xs-center>
         <v-layout row wrap align-center>
           <v-flex xs12 class="pt-4 mt-4">
-            <v-icon class="logo-icon">trending_up</v-icon>
+            <v-icon class="logo-icon" color="primary">trending_up</v-icon>
           </v-flex>
           <v-flex xs12 class="headline">{{$t('settings.about.title')}}</v-flex>
           <v-flex xs12 class="title" v-html="$t('settings.about.creator')"></v-flex>
