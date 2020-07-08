@@ -7,25 +7,9 @@
       <v-btn outline color="#FF3232" v-show="done" @click="restart">
         Restart
       </v-btn>
-      <no-ssr>
-        <Chart
-          :data="doughnutChartData"
-          :options="{
-            legend: {
-              display: true,
-              labels: {
-                fontColor: 'rgb(0, 0, 0)'
-              }
-            },
-            maintainAspectRatio: false,
-            pieceLabel: {
-              mode: 'percentage',
-              precision: 1
-            }
-          }"
-        />
-      </no-ssr>
-      <p class="pa-4">{{ $t("predictionTitle") }}</p>
+    </v-card>
+    <v-card v-show="done" class="doughnut-chart pa-4">
+      <p class="pa-4">{{ $t("fazTitle") }}</p>
       <v-data-table
         :headers="headers"
         :items="done ? data : []"
@@ -34,89 +18,45 @@
       >
         <template v-slot:items="props">
           <td style="max-width:400px">
-            {{ props.item.name }}
+            <b> {{ props.item.name }}</b>
           </td>
           <td>
-            <v-text-field
-              v-model="props.item.fa"
-              solo
-              type="number"
-              min="0"
-              max="100000"
-              step="1"
-            ></v-text-field>
+            <b>{{ props.item.sRegime.char }}</b> -
+            {{ props.item.sRegime.value.toFixed(2) }}
           </td>
           <td>
-            {{ props.item.sRegime.toFixed(2) }}
+            <b>{{ props.item.eRegime.char }}</b> -
+            {{ props.item.eRegime.value.toFixed(2) }}
           </td>
           <td>
-            {{ props.item.eRegime.toFixed(2) }}
+            <b>{{ props.item.dRegime.char }}</b> -
+            {{ props.item.dRegime.value.toFixed(2) }}
           </td>
           <td>
-            {{ props.item.dRegime.toFixed(2) }}
+            <b>{{ props.item.all.char }}</b> -
+            {{ props.item.all.value.toFixed(2) }}
           </td>
         </template>
         <template v-slot:no-data>
           No data ..
         </template>
       </v-data-table>
-      <v-btn color="primary" class="ml-4" @click="stepPredict" outline>
-        Refresh calculations
-      </v-btn>
-    </v-card>
-    <!-- <v-card v-show="done" class="doughnut-chart pa-4">
-      <h2 class="my-4">{{ $t("resultTitle") }}</h2>
-      <p v-for="(item, i) in $t('modes')" :key="item.name">
+      <h2 class="my-4 ml-4">{{ $t("resultTitle") }}</h2>
+      <p class="ml-4" v-for="(item, i) in $t('modes')" :key="item.name">
         <b>{{ item.char }}</b> = { {{ item.name }} } --
         <b>{{ results[i].result ? $t("result")[1] : $t("result")[0] }}</b>
       </p>
-    </v-card> -->
+    </v-card>
   </div>
 </template>
 <script>
-import Chart from "../components/chart";
 import { mapMutations } from "vuex";
 
 export default {
-  components: {
-    Chart
-  },
-  async asyncData({ env }) {
-    // let contributors = await fetch(
-    //   "https://api.github.com/repos/nuxt/nuxt.js/contributors",
-    //   {
-    //     method: "GET",
-    //     headers: {
-    //       Authorization: `token 42cdf9fd55abf41d24f34c0f8a4d9ada5f9e9b93`
-    //     }
-    //   }
-    // );
-    // contributors = contributors.filter(
-    //   c => c.contributions >= 10 && !isBot(c.login)
-    // );
-    return {
-      doughnutChartData: {
-        labels: ["January", "February", "March"],
-        datasets: [
-          {
-            label: "Diagram",
-            backgroundColor: ["#f87979", "#79f879", "#7979f8"],
-            data: [0, 0, 0]
-          }
-        ]
-      }
-    };
-  },
   mounted() {
-    this.doughnutChartData.labels = this.$t("modes").map(x => {
-      return `${x.char}={${x.name}}`;
-    });
-
     setTimeout(() => {
       this.stepOne();
-      setTimeout(() => {
-        this.stepPredict();
-      }, 500);
+      this.fazStep();
     }, 500);
   },
 
@@ -124,51 +64,84 @@ export default {
     return {
       headers: [
         {
-          text: "",
+          text: "Regime",
           sortable: false,
           value: "name"
         },
         {
-          text: "FAj",
+          text: "Smart Security",
           sortable: false,
+
           value: "name"
         },
-        { text: "S={safe mode}", value: "name", sortable: false },
-        { text: "E={emergency mode}", value: "name", sortable: false },
-        { text: "D={disaster mode}", value: "name", sortable: false }
+        { text: "Smart Healthcare", value: "name", sortable: false },
+        { text: "Smart Environment", value: "name", sortable: false },
+        {
+          text: "Overall assessment of subsystems municipality",
+          value: "name",
+          sortable: false
+        }
       ],
       data: [
         {
-          name: "Smart  Security",
-          fa: 100,
-          sRegime: 0,
-          eRegime: 0,
-          dRegime: 0
+          name: "S",
+          sRegime: {
+            char: "",
+            value: 0
+          },
+          eRegime: {
+            char: "",
+            value: 0
+          },
+          dRegime: {
+            char: "",
+            value: 0
+          },
+          all: {
+            char: "",
+            value: 0
+          }
         },
         {
-          name: "Smart  Healthcare",
-          fa: 100,
-          sRegime: 0,
-          eRegime: 0,
-          dRegime: 0
+          name: "E",
+          sRegime: {
+            char: "",
+            value: 0
+          },
+          eRegime: {
+            char: "",
+            value: 0
+          },
+          dRegime: {
+            char: "",
+            value: 0
+          },
+          all: {
+            char: "",
+            value: 0
+          }
         },
         {
-          name: "Smart Environment",
-          fa: 100,
-          sRegime: 0,
-          eRegime: 0,
-          dRegime: 0
-        },
-        {
-          name: "Comprehensive financing",
-          fa: 100,
-          sRegime: 0,
-          eRegime: 0,
-          dRegime: 0
+          name: "D",
+          sRegime: {
+            char: "",
+            value: 0
+          },
+          eRegime: {
+            char: "",
+            value: 0
+          },
+          dRegime: {
+            char: "",
+            value: 0
+          },
+          all: {
+            char: "",
+            value: 0
+          }
         }
       ],
       done: false,
-      doughnutChartData: {},
       types: [
         {
           name: "",
@@ -399,16 +372,6 @@ export default {
         this.risk[2].value += table.modes[2] * table.alpha;
       }
 
-      let data = this.risk.map(x => {
-        return parseFloat((x.value * 100).toPrecision(4));
-      });
-      this.doughnutChartData.datasets = [
-        {
-          label: "Diagram",
-          backgroundColor: ["#f87979", "#79f879", "#7979f8"],
-          data: JSON.parse(JSON.stringify(data))
-        }
-      ];
       //
       const settingsInterval = this.$store.state.rating.risk;
       const settingsCalcType = parseInt(this.$store.state.settings.type);
@@ -433,19 +396,50 @@ export default {
       this.done = true;
       console.warn(this.risk);
     },
+    fazStep() {
+      const settingsInterval = this.$store.state.rating.risk;
+      const modeS = this.tables[0].modes;
+      const modeE = this.tables[1].modes;
+      const modeD = this.tables[2].modes;
 
-    stepPredict() {
       for (let index = 0; index < 3; index++) {
         const element = this.data[index];
-        const modes = this.tables[index].modes;
-        element.sRegime = element.fa * (1 + modes[0]);
-        element.eRegime = element.fa * (1 + modes[1]);
-        element.dRegime = element.fa * (1 + modes[2]);
+        //
+        element.sRegime.char = this.getCharByType(
+          this.getRiskType(modeS[index], settingsInterval)
+        );
+        element.sRegime.value = modeS[index];
+
+        element.eRegime.char = this.getCharByType(
+          this.getRiskType(modeE[index], settingsInterval)
+        );
+        element.eRegime.value = modeE[index];
+
+        element.dRegime.char = this.getCharByType(
+          this.getRiskType(modeD[index], settingsInterval)
+        );
+        element.dRegime.value = modeD[index];
+
+        //
+        element.all.char = this.getCharByType(this.risk[index].riskType);
+        element.all.value = this.risk[index].value;
       }
-      const element = this.data[3];
-      element.sRegime = element.fa * (1 + this.risk[0].value);
-      element.eRegime = element.fa * (1 + this.risk[1].value);
-      element.dRegime = element.fa * (1 + this.risk[2].value);
+    },
+    getCharByType(type) {
+      switch (type) {
+        case 4:
+          return "VHR";
+        case 3:
+          return "HR";
+        case 2:
+          return "AR";
+        case 1:
+          return "LR";
+        case 0:
+          return "VLR";
+        default:
+          return "VLR";
+      }
     }
   }
 };

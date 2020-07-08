@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "SMART CITY education platform",
+    "title": "SMART CITY освітня платформа",
     "creator": "",
     "year": ""
   },
@@ -25,7 +25,7 @@
     "question": { "title": "Values of linguistic variables" },
     "another": { "title": "Терм-множини" },
     "about": {
-      "title": "SMART CITY education platform",
+      "title": "SMART CITY освітня платформа",
       "creator": "",
       "year": ""
     }
@@ -226,11 +226,8 @@
   ],
 
   "menu": [
-    { "name": "Smart Security", "to": "/security" },
-    { "name": "Smart Healthcare", "to": "/healthcare" },
-    { "name": "Smart Environment", "to": "/enviroment" },
     { "name": "Smart Budget", "to": "/budget" },
-    { "name": "Smart WebGIS", "to": "/webgis" }
+    { "name": "Assessment and level of risk", "to": "/assessment" }
   ],
 
   "levels": [
@@ -264,6 +261,8 @@
   "modeTitle": "Поріг можливості функціонування підсистем муніципалітету",
   "tableTitle": "Bагові коефіцієнти",
   "resultTitle":"Ресурс допустимого ризику Y",
+  "predictionTitle":"Прогнозована кількість необхідного фінансування:",
+  "fazTitle":"Дефазифікація даних та визначення рівня ризику",
   
   "result": ["неприйнятний", "прийнятний"]
 }

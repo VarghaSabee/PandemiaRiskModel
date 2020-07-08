@@ -10,6 +10,7 @@ import Enviroment from "~/pages/enviroment";
 import Healthcare from "~/pages/healthcare";
 import Security from "~/pages/security";
 import Webgis from "~/pages/webgis";
+import Assessment from "~/pages/assessment";
 import Settings from "~/pages/settings/settings";
 import SettingsRating from "~/pages/settings/rating";
 import SettingsAnother from "~/pages/settings/another";
@@ -50,6 +51,11 @@ export function createRouter() {
         path: "/webgis",
         component: Webgis
       },
+      {
+        name: "assessment",
+        path: "/assessment",
+        component: Assessment
+      },
       // Settings
       {
         path: "/settings",
@@ -71,6 +77,7 @@ export function createRouter() {
             name: "settings.questions",
             component: SettingsQuestions
           },
+          
           { path: "about", name: "settings.about", component: SettingsAbout }
           // { path: 'password', name: 'settings.password', component: SettingsPassword }
         ]

@@ -6,7 +6,16 @@
       absolute
       class="primary"
     >
-      <v-btn outline v-for="item in $t('menu')" :key="item.name" :to="item.to" color="white">
+      <v-btn outline to="/" color="white">
+        Home
+      </v-btn>
+      <v-btn
+        outline
+        v-for="item in $t('menu')"
+        :key="item.name"
+        :to="item.to"
+        color="white"
+      >
         {{ item.name }}
       </v-btn>
       <v-spacer></v-spacer>
@@ -58,7 +67,7 @@
         fab
         bottom
         right
-        color="pink"
+        color="primary"
         dark
         fixed
         @click="$vuetify.goTo(target, options)"

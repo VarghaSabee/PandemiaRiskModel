@@ -222,11 +222,8 @@
     "Conclusion, determination of risk acceptability and assessment of required resources"
   ],
   "menu": [
-    { "name": "Smart Security", "to": "/security" },
-    { "name": "Smart Healthcare", "to": "/healthcare" },
-    { "name": "Smart Environment", "to": "/enviroment" },
     { "name": "Smart Budget", "to": "/budget" },
-    { "name": "Smart WebGIS", "to": "/webgis" }
+    { "name": "Assessment and level of risk", "to": "/assessment" }
   ],
   "levels": [
     { "name": "low level", "char": "L", "value": 0 },
@@ -257,6 +254,7 @@
   "modeTitle": "Threshold of possibility of functioning of subsystems of the municipality",
   "tableTitle": "Weight coefficients",
   "resultTitle":"Risk resource Y",
-
+  "predictionTitle":"Estimated amount of required funding:",
+  "fazTitle":"Defuzzification of the data and determining the level of risk",
   "result": ["unacceptable", "acceptable"]
 }
