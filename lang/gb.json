@@ -211,6 +211,77 @@
           "value": 0.37
         }
       ]
+    },
+    {
+      "title": "Smart Mobility and Transport",
+      "rows": [
+        {
+          "name": "the situation regarding the traffic control system, including: cameras, sensors, automatic vehicle identification, accident management, roads with different types of lanes, monitoring systems",
+          "v": 10,
+          "index": 3,
+          "value": 0.93
+        },
+        {
+          "name": "the situation regarding logistics and freight transportation policy",
+          "v": 10,
+          "index": 4,
+          "value": 0.85
+        },
+        {
+          "name": "the situation regarding the travel demand management system, clear understanding of the municipality managers, implementation plans and policies",
+          "v": 9,
+          "index": 4,
+          "value": 0.97
+        },
+        {
+          "name": "the situation regarding the availability of intelligent traffic management solutions, such as changing the phases of traffic lights, information about traffic users and dynamic changes in bandwidth",
+          "v": 8,
+          "index": 3,
+          "value": 0.85
+        },
+        {
+          "name": "the situation regarding the quality of dynamic information for passengers on public transport (electronic displays at stops, mobile applications)",
+          "v": 9,
+          "index": 4,
+          "value": 0.82
+        },
+        {
+          "name": "the situation regarding the booking platform and payment for the mobility service through a single interface for all types of public transport",
+          "v": 8,
+          "index": 4,
+          "value": 0.92
+        },
+        {
+          "name": "the situation regarding solutions to improve the accessibility, inclusiveness and equality of mobility of public transport",
+          "v": 7,
+          "index": 3,
+          "value": 0.78
+        },
+        {
+          "name": "the situation regarding the booking platform and payment for the mobility service through a single interface for all types of public transport",
+          "v": 7,
+          "index": 1,
+          "value": 0.85
+        },
+        {
+          "name": "the situation regarding the solution of intelligent parking platforms, to provide information on accurate parking data and adaptive regulation of the parking price depending on the number of free spaces",
+          "v": 7,
+          "index": 1,
+          "value": 0.9
+        },
+        {
+          "name": "the situation regarding the development of the number of parking spaces and charging of electric vehicles",
+          "v": 6,
+          "index": 2,
+          "value": 0.7
+        },
+        {
+          "name": "the situation regarding micromobility solution development systems, including systems and fleets of shared bicycles, scooters, etc.",
+          "v": 6,
+          "index": 2,
+          "value": 0.6
+        }
+      ]
     }
   ],
   "stages": [
@@ -253,8 +324,8 @@
   "calcTypeTitle": "Scenario",
   "modeTitle": "Threshold of possibility of functioning of subsystems of the municipality",
   "tableTitle": "Weight coefficients",
-  "resultTitle":"Risk resource Y",
-  "predictionTitle":"Estimated amount of required funding:",
-  "fazTitle":"Defuzzification of the data and determining the level of risk",
+  "resultTitle": "Risk resource Y",
+  "predictionTitle": "Estimated amount of required funding:",
+  "fazTitle": "Defuzzification of the data and determining the level of risk",
   "result": ["unacceptable", "acceptable"]
 }

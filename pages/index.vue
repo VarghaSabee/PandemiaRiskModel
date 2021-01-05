@@ -186,7 +186,66 @@
                 </v-data-table>
               </div>
               <v-btn text @click="e13 = e13 - 1">Back</v-btn>
-              <v-btn color="primary" @click="saveChanges">Save</v-btn>
+              <v-btn color="primary" @click="saveChanges">Continue</v-btn>
+            </v-stepper-content>
+            <v-stepper-step step="4">
+              Smart Mobility and Transport
+            </v-stepper-step>
+
+            <v-stepper-content step="4">
+              <div>
+                <v-data-table
+                  :headers="headers"
+                  :items="data4"
+                  class="elevation-1 ma-4"
+                  hide-actions
+                >
+                  <template v-slot:items="props">
+                    <td style="max-width:400px">
+                      <p>
+                        SMT<sub>{{ props.index + 1 }}</sub> -
+                        {{ props.item.name }}
+                      </p>
+                    </td>
+                    <td>
+                      <v-select
+                        solo
+                        dense
+                        v-model="props.item.index"
+                        item-text="name"
+                        item-value="value"
+                        :items="levels"
+                        style="max-width:300px"
+                      ></v-select>
+                    </td>
+                    <td>
+                      <v-text-field
+                        v-model="props.item.v"
+                        solo
+                        type="number"
+                        min="0"
+                        max="10"
+                        step="1"
+                      ></v-text-field>
+                    </td>
+                    <td>
+                      <v-text-field
+                        v-model="props.item.value"
+                        solo
+                        type="number"
+                        min="0"
+                        max="1"
+                        step="0.1"
+                      ></v-text-field>
+                    </td>
+                  </template>
+                  <template v-slot:no-data>
+                    No data ..
+                  </template>
+                </v-data-table>
+              </div>
+              <v-btn text @click="e13 = e13 - 1">Back</v-btn>
+              <v-btn color="primary" @click="saveChanges4">Save</v-btn>
             </v-stepper-content>
           </v-stepper>
         </v-flex>
@@ -213,6 +272,7 @@ export default {
       levels: [{ name: "", value: 0, char: "" }],
       levels2: [{ name: "", value: 0, char: "" }],
       levels3: [{ name: "", value: 0, char: "" }],
+      levels4: [{ name: "", value: 0, char: "" }],
       headers: [
         {
           text: "Criterion",
@@ -244,6 +304,13 @@ export default {
           index: 1,
           value: 0
         }
+      ],
+      data4: [
+        {
+          name: "",
+          index: 1,
+          value: 0
+        }
       ]
     };
   },
@@ -264,7 +331,7 @@ export default {
 
       tables[2].data = JSON.parse(JSON.stringify(data));
       this.$store.dispatch("tables/setTables", { tables });
-      alert("Changes saved!");
+      this.e13 = 4;
     },
     saveChanges2() {
       const storedTableData = JSON.parse(
@@ -303,6 +370,24 @@ export default {
       this.$store.dispatch("tables/setTables", { tables });
       // alert("Changes saved!");
       this.e13 = 2;
+    },
+    saveChanges4() {
+      const storedTableData = JSON.parse(
+        JSON.stringify(this.$store.state.tables.tables)
+      );
+      let tables = storedTableData;
+
+      let data = this.data.map(x => {
+        return {
+          v: x.v,
+          T: x.index,
+          q: x.value
+        };
+      });
+
+      tables[3].data = JSON.parse(JSON.stringify(data));
+      this.$store.dispatch("tables/setTables", { tables });
+      alert("Changes saved!");
     }
   },
   created() {
@@ -314,6 +399,9 @@ export default {
     //
     this.levels3 = this.$t("levels");
     this.data3 = JSON.parse(JSON.stringify(this.$t("tables[0].rows")));
+    //
+    this.levels4 = this.$t("levels");
+    this.data4 = JSON.parse(JSON.stringify(this.$t("tables[3].rows")));
   }
 };
 </script>

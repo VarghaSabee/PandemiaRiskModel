@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 export const state = () => ({
   a: "0|2|4|7|10|12",
   k: "5/3|4/3|2/3",
-  intervals: "10|9|8",
+  intervals: "10|9|8|9",
   type: 2,
 
   table: [

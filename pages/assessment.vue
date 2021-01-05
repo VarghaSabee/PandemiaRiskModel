@@ -17,7 +17,7 @@
         hide-actions
       >
         <template v-slot:items="props">
-          <td style="max-width:400px">
+          <td style="max-width:500px">
             <b> {{ props.item.name }}</b>
           </td>
           <td>
@@ -31,6 +31,10 @@
           <td>
             <b>{{ props.item.dRegime.char }}</b> -
             {{ props.item.dRegime.value.toFixed(2) }}
+          </td>
+          <td>
+            <b>{{ props.item.smtRegime.char }}</b> -
+            {{ props.item.smtRegime.value.toFixed(2) }}
           </td>
           <td>
             <b>{{ props.item.all.char }}</b> -
@@ -77,6 +81,11 @@ export default {
         { text: "Smart Healthcare", value: "name", sortable: false },
         { text: "Smart Environment", value: "name", sortable: false },
         {
+          text: "Smart Mobility and Transport",
+          value: "name",
+          sortable: false
+        },
+        {
           text: "Overall assessment of subsystems municipality",
           value: "name",
           sortable: false
@@ -94,6 +103,10 @@ export default {
             value: 0
           },
           dRegime: {
+            char: "",
+            value: 0
+          },
+          smtRegime: {
             char: "",
             value: 0
           },
@@ -116,6 +129,10 @@ export default {
             char: "",
             value: 0
           },
+          smtRegime: {
+            char: "",
+            value: 0
+          },
           all: {
             char: "",
             value: 0
@@ -132,6 +149,10 @@ export default {
             value: 0
           },
           dRegime: {
+            char: "",
+            value: 0
+          },
+          smtRegime: {
             char: "",
             value: 0
           },
@@ -156,6 +177,7 @@ export default {
       ],
       risk: [
         { char: "S", value: 0, calcType: 0, riskType: 0 },
+        { char: "E", value: 0, calcType: 0, riskType: 0 },
         { char: "E", value: 0, calcType: 0, riskType: 0 },
         { char: "D", value: 0, calcType: 0, riskType: 0 }
       ],
@@ -182,6 +204,16 @@ export default {
         },
         {
           table: "SE",
+          Oij: [],
+          MnyuOij: [],
+          Wij: [],
+          modes: [],
+          M: 0,
+          Rg: 0,
+          alpha: 0
+        },
+        {
+          table: "SMT",
           Oij: [],
           MnyuOij: [],
           Wij: [],
@@ -222,7 +254,6 @@ export default {
       if (Oij < arrayA[5]) {
         return 1 - 2 * Math.pow((arrayA[5] - Oij) / (arrayA[5] - arrayA[0]), 2);
       }
-
       return 1;
     },
     //
@@ -370,6 +401,7 @@ export default {
         this.risk[0].value += table.modes[0] * table.alpha;
         this.risk[1].value += table.modes[1] * table.alpha;
         this.risk[2].value += table.modes[2] * table.alpha;
+        this.risk[3].value += table.modes[3] * table.alpha;
       }
 
       //
@@ -401,8 +433,9 @@ export default {
       const modeS = this.tables[0].modes;
       const modeE = this.tables[1].modes;
       const modeD = this.tables[2].modes;
+      const modeSMT = this.tables[3].modes;
 
-      for (let index = 0; index < 3; index++) {
+      for (let index = 0; index < 4; index++) {
         const element = this.data[index];
         //
         element.sRegime.char = this.getCharByType(
@@ -419,7 +452,11 @@ export default {
           this.getRiskType(modeD[index], settingsInterval)
         );
         element.dRegime.value = modeD[index];
-
+        
+        element.smtRegime.char = this.getCharByType(
+          this.getRiskType(modeSMT[index], settingsInterval)
+        );
+        element.smtRegime.value = modeSMT[index];
         //
         element.all.char = this.getCharByType(this.risk[index].riskType);
         element.all.value = this.risk[index].value;

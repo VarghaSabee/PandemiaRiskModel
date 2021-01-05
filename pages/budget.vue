@@ -160,6 +160,13 @@ export default {
           dRegime: 0
         },
         {
+          name: "Smart Mobility and Transport",
+          fa: 100,
+          sRegime: 0,
+          eRegime: 0,
+          dRegime: 0
+        },
+        {
           name: "Comprehensive financing",
           fa: 100,
           sRegime: 0,
@@ -209,6 +216,16 @@ export default {
         },
         {
           table: "SE",
+          Oij: [],
+          MnyuOij: [],
+          Wij: [],
+          modes: [],
+          M: 0,
+          Rg: 0,
+          alpha: 0
+        },
+        {
+          table: "SMT",
           Oij: [],
           MnyuOij: [],
           Wij: [],
@@ -435,14 +452,14 @@ export default {
     },
 
     stepPredict() {
-      for (let index = 0; index < 3; index++) {
+      for (let index = 0; index < 4; index++) {
         const element = this.data[index];
         const modes = this.tables[index].modes;
         element.sRegime = element.fa * (1 + modes[0]);
         element.eRegime = element.fa * (1 + modes[1]);
         element.dRegime = element.fa * (1 + modes[2]);
       }
-      const element = this.data[3];
+      const element = this.data[4];
       element.sRegime = element.fa * (1 + this.risk[0].value);
       element.eRegime = element.fa * (1 + this.risk[1].value);
       element.dRegime = element.fa * (1 + this.risk[2].value);
