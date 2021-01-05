@@ -116,8 +116,8 @@ export default {
       this.stepOne();
       setTimeout(() => {
         this.stepPredict();
-      }, 500);
-    }, 500);
+      }, 800);
+    }, 800);
   },
 
   data() {

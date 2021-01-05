@@ -435,7 +435,7 @@ export default {
       const modeD = this.tables[2].modes;
       const modeSMT = this.tables[3].modes;
 
-      for (let index = 0; index < 4; index++) {
+      for (let index = 0; index < 3; index++) {
         const element = this.data[index];
         //
         element.sRegime.char = this.getCharByType(

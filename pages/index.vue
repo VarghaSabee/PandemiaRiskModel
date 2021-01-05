@@ -12,7 +12,7 @@
       <v-layout row wrap justify-center>
         <v-flex xs12>
           <v-stepper v-model="e13" vertical>
-            <v-stepper-step step="1" complete>
+            <v-stepper-step step="1" :complete="e13 > 1">
               <span id="startpoint">Smart Security</span>
             </v-stepper-step>
 
@@ -71,7 +71,9 @@
               <v-btn color="primary" @click="saveChanges3">Continue</v-btn>
             </v-stepper-content>
 
-            <v-stepper-step step="2" complete> Smart Healthcare</v-stepper-step>
+            <v-stepper-step step="2" :complete="e13 > 2">
+              Smart Healthcare</v-stepper-step
+            >
 
             <v-stepper-content step="2">
               <div>
@@ -129,7 +131,7 @@
               <v-btn color="primary" @click="saveChanges2">Continue</v-btn>
             </v-stepper-content>
 
-            <v-stepper-step step="3">
+            <v-stepper-step step="3" :complete="e13 > 3">
               Smart Environment
             </v-stepper-step>
 
@@ -316,10 +318,7 @@ export default {
   },
   methods: {
     saveChanges() {
-      const storedTableData = JSON.parse(
-        JSON.stringify(this.$store.state.tables.tables)
-      );
-      let tables = storedTableData;
+      let tables = JSON.parse(JSON.stringify(this.$store.state.tables.tables));
 
       let data = this.data.map(x => {
         return {
@@ -330,15 +329,11 @@ export default {
       });
 
       tables[2].data = JSON.parse(JSON.stringify(data));
-      this.$store.dispatch("tables/setTables", { tables });
+      this.$store.dispatch("tables/setTables", { tables: tables });
       this.e13 = 4;
     },
     saveChanges2() {
-      const storedTableData = JSON.parse(
-        JSON.stringify(this.$store.state.tables.tables)
-      );
-      let tables = storedTableData;
-
+      let tables = JSON.parse(JSON.stringify(this.$store.state.tables.tables));
       let data = this.data.map(x => {
         return {
           v: x.v,
@@ -348,15 +343,12 @@ export default {
       });
 
       tables[1].data = JSON.parse(JSON.stringify(data));
-      this.$store.dispatch("tables/setTables", { tables });
+      this.$store.dispatch("tables/setTables", { tables: tables });
       // alert("Changes saved!");
       this.e13 = 3;
     },
     saveChanges3() {
-      const storedTableData = JSON.parse(
-        JSON.stringify(this.$store.state.tables.tables)
-      );
-      let tables = storedTableData;
+      let tables = JSON.parse(JSON.stringify(this.$store.state.tables.tables));
 
       let data = this.data.map(x => {
         return {
@@ -367,15 +359,12 @@ export default {
       });
 
       tables[0].data = JSON.parse(JSON.stringify(data));
-      this.$store.dispatch("tables/setTables", { tables });
+      this.$store.dispatch("tables/setTables", { tables: tables });
       // alert("Changes saved!");
       this.e13 = 2;
     },
     saveChanges4() {
-      const storedTableData = JSON.parse(
-        JSON.stringify(this.$store.state.tables.tables)
-      );
-      let tables = storedTableData;
+      let tables = JSON.parse(JSON.stringify(this.$store.state.tables.tables));
 
       let data = this.data.map(x => {
         return {
@@ -386,7 +375,7 @@ export default {
       });
 
       tables[3].data = JSON.parse(JSON.stringify(data));
-      this.$store.dispatch("tables/setTables", { tables });
+      this.$store.dispatch("tables/setTables", { tables: tables });
       alert("Changes saved!");
     }
   },
