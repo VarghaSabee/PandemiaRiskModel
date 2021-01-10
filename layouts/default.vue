@@ -18,6 +18,14 @@
       >
         {{ item.name }}
       </v-btn>
+      <v-btn
+        outline
+        :href="'https://smartcity-2.herokuapp.com'"
+        target="_blank"
+        color="white"
+      >
+        Personnel Selection
+      </v-btn>
       <v-spacer></v-spacer>
 
       <!-- <v-btn icon @click="dark = !dark">
